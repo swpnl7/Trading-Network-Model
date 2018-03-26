@@ -1,0 +1,23 @@
+/**
+ * My commodity trading network
+ */
+
+namespace org.acme.biznet
+
+asset Commodity identified by tradingSymbol {
+o String tradingSymbol
+o String description
+o String mainExchange
+o Double quantity
+--> Trader owner
+}
+participant Trader identified by traderid {
+o String traderid
+o String firstname
+o String lastname
+}
+
+transaction Trade {
+--> Commodity commodity
+--> Trader newOwner
+}
